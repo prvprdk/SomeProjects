@@ -52,9 +52,11 @@ public class MainController {
                 .email(email)
                 .phone(phone)
                 .site(site)
-                .contractSet(form)
                 .build();
 
+        if (form != null) {
+            client.setContractSet(form);
+        }
 
         clientService.add(client);
 
