@@ -12,8 +12,7 @@ public class ClientService {
     ClientRepo clientRepo;
 
 
-
-    public void add (Client client){
+    public void add(Client client) {
         clientRepo.save(client);
     }
 

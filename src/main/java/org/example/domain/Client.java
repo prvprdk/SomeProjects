@@ -23,11 +23,10 @@ public class Client {
     private String phone;
     private String email;
     private String site;
-    @ElementCollection (targetClass = Contract.class, fetch = FetchType.EAGER)
-    @CollectionTable (name = "client_contract", joinColumns = @JoinColumn (name = "client_id"))
+    @ElementCollection(targetClass = Contract.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "client_contract", joinColumns = @JoinColumn(name = "client_id"))
     @Enumerated(EnumType.STRING)
     private Set<Contract> contractSet;
-
 
 
 }
