@@ -4,4 +4,5 @@ import org.example.domain.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ClientRepo extends JpaRepository<Client, Long> {
+    public void deleteById (Long id);
 }

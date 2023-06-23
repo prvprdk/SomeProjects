@@ -23,6 +23,9 @@ public class Client {
     private String phone;
     private String email;
     private String site;
+    @ManyToOne
+            (fetch = FetchType.EAGER)
+    private User author;
     @ElementCollection(targetClass = Contract.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "client_contract", joinColumns = @JoinColumn(name = "client_id"))
     @Enumerated(EnumType.STRING)
