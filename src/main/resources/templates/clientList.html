@@ -1,0 +1,32 @@
+<div th:fragment="clientList">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">name</th>
+            <th scope="col">company</th>
+            <th scope="col">site</th>
+            <th scope="col">phone</th>
+            <th scope="col">email</th>
+            <th scope="col">contract</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="client: ${clients}">
+            <td th:text="${client.name}"></td>
+            <td th:text="${client.company}"></td>
+            <td th:text="${client.site}"></td>
+            <td th:text="${client.phone}"></td>
+            <td th:text="${client.email}"></td>
+            <td th:text="${#strings.setJoin(client.contractSet, ', ')}"></td>
+            <td>
+                <form th:action="@{/empDelete}" th:object="${clientForDelete}" method="post">
+                    <input type="hidden" name="id" th:value="${client.id}">
+                    <button type="submit">Delete</button>
+                    <button type="submit"><a class="col" th:href="@{/clients/{id}(id=${client.id})}"> Edit</a></button>
+                </form>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>

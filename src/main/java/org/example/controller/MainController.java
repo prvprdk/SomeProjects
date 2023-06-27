@@ -14,11 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.util.StringUtils;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 
 @Controller
@@ -55,9 +51,10 @@ public class MainController {
                       @RequestParam String company,
                       @RequestParam String email,
                       @RequestParam String phone,
-                   //  @RequestParam List<String> contr,
+                      @RequestParam List<Contract> contractSet,
                       @RequestParam String site
     ) {
+
 
         Client client = Client.builder()
                 .name(name)
@@ -65,9 +62,9 @@ public class MainController {
                 .email(email)
                 .phone(phone)
                 .site(site)
+                .contractSet(contractSet)
                 .author(user)
                 .build();
-
 
 
         clientService.add(client);
@@ -76,7 +73,7 @@ public class MainController {
 
     @PostMapping("/empDelete")
     public String delete(@ModelAttribute(value = "clientForDelete") Client client) {
-      clientRepo.delete(client);
+        clientRepo.delete(client);
 
         return "redirect:/clients";
     }
@@ -98,15 +95,14 @@ public class MainController {
                          @RequestParam String company,
                          @RequestParam String email,
                          @RequestParam String phone,
-                         @RequestParam String site
-
-                       //  @RequestParam @Nullable Set<Contract> form
+                         @RequestParam String site,
+                         @RequestParam @Nullable List<Contract> contractSet
     ) {
 
-//        if (form != null) {
-//            client.getContractSet().clear();
-//            client.setContractSet(form);
-//        }
+        if (contractSet != null) {
+            client.getContractSet().clear();
+            client.setContractSet(contractSet);
+        }
         if (!StringUtils.isEmpty(name)) {
             client.setName(name);
         }

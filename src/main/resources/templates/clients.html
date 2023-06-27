@@ -6,77 +6,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
-<body class="container">
+<body>
 
-<p>Get your main <a href="/">here</a></p>
-
-<form th:action="@{/logout}" method="post">
-    <button class="btn" type="submit">Sign Out</button>
-</form>
-
-<form   th:object="${client}" method="post">
-
-    <div>
-        <input class="mb-3" type="text" name="name" th:value="${client?.name}" placeholder="name"/>
-    </div>
-    <div>
-        <input class="mb-3" type="text" name="company" th:value="${client?.company}" placeholder="company"/>
-    </div>
-    <div>
-        <input class="mb-3" type="text" name="site" th:value="${client?.site}" placeholder="site"/>
-    </div>
-    <div>
-        <input class="mb-3" type="text" name="phone" th:value="${client?.phone}" placeholder="phone"/>
-    </div>
-    <div>
-        <input class="mb-3" type="text" name="email" th:value="${client?.email}" placeholder="email"/>
-    </div>
-    <div th:each="contract: ${contracts}">
-
-        <input th:text="${contract.name}" class="mb-3" type="checkbox" />
-
-    </div>
-    <div>
-        <button type="submit" class=" mb-3 col">save</button>
-    </div>
-</form>
-
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">name</th>
-        <th scope="col">company</th>
-        <th scope="col">site</th>
-        <th scope="col">phone</th>
-        <th scope="col">email</th>
-        <th scope="col">contract</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="client: ${clients}">
-        <td th:text="${client.name}"></td>
-        <td th:text="${client.company}"></td>
-        <td th:text="${client.site}"></td>
-        <td th:text="${client.phone}"></td>
-        <td th:text="${client.email}"></td>
-        <td th:text="${#strings.setJoin(client.contractSet, ', ')}"></td>
-        <td>
-            <form th:action="@{/empDelete}" th:object="${clientForDelete}" method="post">
-                <input type="hidden" name="id" th:value="${client.id}">
-                <button type="submit">Delete</button>
-                <button type="submit"><a class="col" th:href="@{/clients/{id}(id=${client.id})}"> Edit</a></button>
-            </form>
-        </td>
-    </tr>
-
-    </tbody>
-</table>
-
-
-
-
+<div th:insert="~{navbar :: navbar}"></div>
+<div class="container-xl">
+    <p>Get your main <a href="/">here</a></p>
+    <div th:insert="~{clientForm :: clientForm}"></div>
+    <div th:insert="~{clientList :: clientList}"></div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
 </body>
 </html>
+

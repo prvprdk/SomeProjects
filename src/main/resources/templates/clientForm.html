@@ -1,0 +1,29 @@
+<div th:fragment="clientForm" >
+<form th:object="${client}" method="post">
+
+    <div >
+        <input class="mb-3" type="text" name="name" th:value="${client?.name}" placeholder="name"/>
+    </div>
+    <div>
+        <input class="mb-3" type="text" name="company" th:value="${client?.company}" placeholder="company"/>
+    </div>
+    <div>
+        <input class="mb-3" type="text" name="site" th:value="${client?.site}" placeholder="site"/>
+    </div>
+    <div>
+        <input class="mb-3" type="text" name="phone" th:value="${client?.phone}" placeholder="phone"/>
+    </div>
+    <div>
+        <input class="mb-3" type="text" name="email" th:value="${client?.email}" placeholder="email"/>
+    </div>
+    <div th:each="contract: ${contracts}">
+
+        <input th:text="${contract.name}" name="contractSet" class="mb-3" type="checkbox" th:value="${contract.name}"
+               th:checked="${client?.contractSet != null and client.contractSet.contains(contract)}"/>
+
+    </div>
+    <div>
+        <button type="submit" class=" mb-3 col">save</button>
+    </div>
+</form>
+</div>

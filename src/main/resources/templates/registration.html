@@ -11,7 +11,7 @@
 <form class="mt-5" th:action="@{/registration}" method="post">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Login</label>
-        <input type="text" name="username" placeholder="username" class="form-control" id="exampleInputEmail1"  >
+        <input type="text" name="username" placeholder="username" class="form-control" id="exampleInputEmail1">
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -22,10 +22,12 @@
         <input type="password" name="password2" class="form-control" id="exampleInputPassword2">
         <div id="emailHelp" class="form-text">please repeat password</div>
     </div>
-    <button type="submit" >create</button>
+    <button type="submit">create</button>
 </form>
 
-<p><a href="/login" class="mt-5 link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">logn page</a></p>
+<p><a href="/login"
+      class="mt-5 link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover">logn
+    page</a></p>
 
 <div>
     <p th:text=" ${message}  "/>

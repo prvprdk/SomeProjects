@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Data
@@ -29,7 +29,7 @@ public class Client {
     @ElementCollection(targetClass = Contract.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "client_contract", joinColumns = @JoinColumn(name = "client_id"))
     @Enumerated(EnumType.STRING)
-    private Set<Contract> contractSet;
+    private List<Contract> contractSet;
 
 
 }
