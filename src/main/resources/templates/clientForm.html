@@ -1,29 +1,43 @@
-<div th:fragment="clientForm" >
-<form th:object="${client}" method="post">
+<div th:fragment="clientForm">
 
-    <div >
-        <input class="mb-3" type="text" name="name" th:value="${client?.name}" placeholder="name"/>
-    </div>
-    <div>
-        <input class="mb-3" type="text" name="company" th:value="${client?.company}" placeholder="company"/>
-    </div>
-    <div>
-        <input class="mb-3" type="text" name="site" th:value="${client?.site}" placeholder="site"/>
-    </div>
-    <div>
-        <input class="mb-3" type="text" name="phone" th:value="${client?.phone}" placeholder="phone"/>
-    </div>
-    <div>
-        <input class="mb-3" type="text" name="email" th:value="${client?.email}" placeholder="email"/>
-    </div>
-    <div th:each="contract: ${contracts}">
+    <p>
+        <a class="btn btn-light" data-bs-toggle="collapse" href="#collapseExample" role="button">Add user</a>
+    </p>
 
-        <input th:text="${contract.name}" name="contractSet" class="mb-3" type="checkbox" th:value="${contract.name}"
-               th:checked="${client?.contractSet != null and client.contractSet.contains(contract)}"/>
+    <div class="collapse show" id="collapseExample">
+        <form th:object="${client}" method="post">
+            <tbody>
+            <tr>
+                <td>
+                    <input class="mb-3" type="text" name="name" th:value="${client?.name}" placeholder="name"/>
+                </td>
+                <td>
+                    <input class="mb-3" type="text" name="company" th:value="${client?.company}" placeholder="company"/>
+                </td>
+                <td>
+                    <input class="mb-3" type="text" name="site" th:value="${client?.site}" placeholder="site"/>
+                </td>
+                <td>
+                    <input class="mb-3" type="text" name="phone" th:value="${client?.phone}" placeholder="phone"/>
+                </td>
+                <td>
+                    <input class="mb-3" type="text" name="email" th:value="${client?.email}" placeholder="email"/>
+                </td>
+                <td th:each="contract: ${contracts}">
 
+                    <div><input th:text="${contract.name}" name="contractSet" class="mb-3" type="checkbox"
+                                th:value="${contract.name}"
+                                th:checked="${client?.contractSet != null and client.contractSet.contains(contract)}"/>
+                    </div>
+
+                </td>
+                <td>
+                    <button class="badge text-bg-success" type="submit">save</button>
+                </td>
+                <td>
+                    <a href="/clients">clear</a>
+                </td>
+            </tr>
+        </form>
     </div>
-    <div>
-        <button type="submit" class=" mb-3 col">save</button>
-    </div>
-</form>
 </div>

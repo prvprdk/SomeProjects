@@ -1,18 +1,20 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" >
 <head>
     <title>Clients</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
-<body>
-
+<body class="container-xl">
 <div th:insert="~{navbar :: navbar}"></div>
 <div class="container-xl">
-    <p>Get your main <a href="/">here</a></p>
-    <div th:insert="~{clientForm :: clientForm}"></div>
+    <div class="mt-5"  th:insert="~{clientForm :: clientForm}"></div>
     <div th:insert="~{clientList :: clientList}"></div>
+</div>
+
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

@@ -21,10 +21,10 @@
             <td>
                 <form th:action="@{/empDelete}" th:object="${clientForDelete}" method="post">
                     <input type="hidden" name="id" th:value="${client.id}">
-                    <button type="submit">Delete</button>
-                    <button type="submit"><a class="col" th:href="@{/clients/{id}(id=${client.id})}"> Edit</a></button>
+                    <button class="badge text-bg-danger" type="submit">Delete</button>
                 </form>
             </td>
+            <td><a class="badge text-bg-warning" th:href="@{/clients/{id}(id=${client.id})}">Edit</a></td>
         </tr>
 
         </tbody>

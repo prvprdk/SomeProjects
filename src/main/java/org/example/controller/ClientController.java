@@ -18,14 +18,14 @@ import java.util.List;
 
 
 @Controller
-public class MainController {
+public class ClientController {
 
 
     private final ClientRepo clientRepo;
     private final ClientService clientService;
     private final UserRepo userRepo;
 
-    public MainController(ClientRepo clientRepo, ClientService clientService, UserRepo userRepo) {
+    public ClientController(ClientRepo clientRepo, ClientService clientService, UserRepo userRepo) {
         this.clientRepo = clientRepo;
         this.clientService = clientService;
         this.userRepo = userRepo;
@@ -33,7 +33,7 @@ public class MainController {
 
     @GetMapping("/")
     public String index() {
-        return "index";
+        return "common";
     }
 
     @GetMapping("/clients")
@@ -55,7 +55,6 @@ public class MainController {
                       @RequestParam String site
     ) {
 
-
         Client client = Client.builder()
                 .name(name)
                 .company(company)
@@ -65,7 +64,6 @@ public class MainController {
                 .contractSet(contractSet)
                 .author(user)
                 .build();
-
 
         clientService.add(client);
         return "redirect:/clients";

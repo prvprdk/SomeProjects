@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SpaceCompany</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body class="container-xl">
+<div th:insert="~{navbar :: navbar}"></div>
+
+<form method="post" class="mt-5">
+    <input name="nameSite" placeholder="name site" type="text"/>
+    <button class="badge text-bg-success" type="submit">Add site</button>
+</form>
+
+<div class=" list-group list-group-flush mt-3" th:each="site:${sites}">
+    <a th:href="@{/accesses/{id}(id=${site.id})}" class="list-group-item"> <span th:text="${site.nameSite}"></span> </a>
+    <form th:action="@{/siteDel}" th:object="${siteForDelete}" method="post">
+        <input type="hidden" name="id" th:value="${site.id}"/>
+        <button class="badge text-bg-danger my-3" type="submit">del</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
+

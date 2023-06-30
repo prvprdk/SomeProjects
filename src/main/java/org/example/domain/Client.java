@@ -23,10 +23,9 @@ public class Client {
     private String phone;
     private String email;
     private String site;
-    @ManyToOne
-            (fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private User author;
-    @ElementCollection(targetClass = Contract.class, fetch = FetchType.EAGER)
+    @ElementCollection(targetClass = Contract.class, fetch = FetchType.LAZY)
     @CollectionTable(name = "client_contract", joinColumns = @JoinColumn(name = "client_id"))
     @Enumerated(EnumType.STRING)
     private List<Contract> contractSet;

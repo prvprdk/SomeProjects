@@ -25,7 +25,7 @@ public class UserService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }
-        return userRepo.findByUsername(username);
+        return user;
     }
 
     public Boolean addUser(User user) {
