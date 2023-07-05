@@ -18,7 +18,7 @@ public class Site {
     private Long id;
     private String nameSite;
     @OneToMany
-            (mappedBy = "site", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+            (mappedBy = "site", cascade = CascadeType.ALL,  fetch = FetchType.EAGER)
     private List<Access> accessList;
 
 }

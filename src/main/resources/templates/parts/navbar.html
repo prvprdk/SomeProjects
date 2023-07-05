@@ -15,9 +15,11 @@
                         <a class="nav-link" href="/accesses">Accesses</a>
                     </li>
                 </ul>
-               <div th:text="${#authorization.expression('isAuthenticated()')} ? ${#authentication.principal.username} : 'unknown' " ></div>
+                <div th:text="${#authorization.expression('isAuthenticated()')} ? ${#authentication.principal.username} : 'unknown' "></div>
                 <form class="d-flex" th:action="@{/logout}" method="post">
-                    <button  th:if="${#authorization.expression('isAuthenticated()')}" class="btn" type="submit">Sign Out</button>
+                    <button th:if="${#authorization.expression('isAuthenticated()')}" class="btn" type="submit">Sign
+                        Out
+                    </button>
                 </form>
             </div>
         </div>

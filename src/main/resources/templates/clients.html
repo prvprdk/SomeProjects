@@ -8,10 +8,10 @@
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body class="container-xl">
-<div th:insert="~{navbar :: navbar}"></div>
+<div th:insert="~{parts/navbar :: navbar}"></div>
 <div class="container-xl">
-    <div class="mt-5"  th:insert="~{clientForm :: clientForm}"></div>
-    <div th:insert="~{clientList :: clientList}"></div>
+    <div class="mt-5"  th:insert="~{parts/clientForm :: clientForm}"></div>
+    <div th:insert="~{parts/clientList :: clientList}"></div>
 </div>
 
 

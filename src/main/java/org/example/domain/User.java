@@ -1,8 +1,9 @@
 package org.example.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,13 +15,21 @@ import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "usr")
 
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    @Pattern(regexp = "^[a-zA-Z0-1]", message = "only letters A-z and numbers 0-1")
     private String username;
+    @NotBlank (message = "Password cannot be empty")
     private String password;
+    @Transient
+    @NotBlank (message = "Password confirmation cannot be empty")
+    private String passwordConfirm;
+
     @OneToMany
             (mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Client> clientList;
@@ -75,6 +84,14 @@ public class User implements UserDetails {
 
     public void setClientList(List<Client> clientList) {
         this.clientList = clientList;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
     }
 
     public Long getId() {
