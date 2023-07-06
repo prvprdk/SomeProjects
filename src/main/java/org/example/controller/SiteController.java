@@ -35,7 +35,7 @@ public class SiteController {
         return "site";
     }
 
-    @PostMapping("/accesses")
+    @PostMapping("/addSite")
     public String AddSite(@Valid Site site,
                           Model model) {
         siteRepo.save(site);

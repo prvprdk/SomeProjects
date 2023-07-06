@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AccessController {
@@ -36,10 +37,9 @@ public class AccessController {
     }
 
     @PostMapping("/accessDel")
-    public String accessDel(@ModelAttribute(value = "accessForDelete") Access access) {
-
+    public String accessDel(@ModelAttribute(value = "accessForDelete") Access access, @RequestParam Long id_site) {
         accessRepo.delete(access);
-        return "redirect:/accesses";
+        return "redirect:/accesses/" + id_site;
     }
 
 }

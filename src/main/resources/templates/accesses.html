@@ -10,15 +10,18 @@
 <body class="container-xl">
 <div th:insert="~{parts/navbar :: navbar}"></div>
 
-<form method="post" class="mt-5">
+<form th:action="@{/addSite}" method="post" class="mt-5">
     <input name="nameSite" placeholder="name site" type="text"/>
+
     <button class="badge text-bg-success" type="submit">Add site</button>
 </form>
 
 <div class=" list-group list-group-flush mt-3" th:each="site:${sites}">
     <a th:href="@{/accesses/{id}(id=${site.id})}" class="list-group-item"> <span th:text="${site.nameSite}"></span> </a>
+
     <form th:action="@{/siteDel}" th:object="${siteForDelete}" method="post">
         <input type="hidden" name="id" th:value="${site.id}"/>
+
         <button class="badge text-bg-danger my-3" type="submit">del</button>
     </form>
 </div>

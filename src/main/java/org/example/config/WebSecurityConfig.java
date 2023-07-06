@@ -24,9 +24,8 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         return http
-                .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth
 
+                .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/registration")
                         .permitAll()
                         .anyRequest()
@@ -34,9 +33,7 @@ public class WebSecurityConfig {
                 .userDetailsService(userService)
                 .formLogin(l -> l.loginPage("/login").permitAll())
                 .logout(httpSecurityLogoutConfigurer -> httpSecurityLogoutConfigurer.logoutSuccessUrl("/").permitAll())
-
                 .build();
-
     }
 
 }

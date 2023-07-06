@@ -9,7 +9,10 @@
                                th:value="${typeAccess.name}" name="typeAccess"
                                class="mb-3"
                                type="radio"/>
-
+                        <input
+                                type="hidden"
+                                th:name="${_csrf.parameterName}"
+                                th:value="${_csrf.token}"/>
                     </div>
                 </div>
                 <div class="col">
