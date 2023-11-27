@@ -22,7 +22,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @Pattern(regexp = "^[a-zA-Z0-1]", message = "only letters A-z and numbers 0-1")
+    @Pattern(regexp = "^[a-zA-Z0-1]*", message = "only letters A-z and numbers 0-1")
     private String username;
     @NotBlank (message = "Password cannot be empty")
     private String password;
