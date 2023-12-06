@@ -17,8 +17,7 @@ public class Site {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String nameSite;
-    @OneToMany
-            (mappedBy = "site", cascade = CascadeType.ALL,  fetch = FetchType.EAGER)
+     @OneToMany(mappedBy = "site", cascade = CascadeType.ALL,  fetch = FetchType.EAGER)
     private List<Access> accessList;
 
 }

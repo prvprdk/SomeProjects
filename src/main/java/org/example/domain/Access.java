@@ -17,6 +17,7 @@ public class Access {
     private String login;
     private String typeAccess;
     private String password;
+    private boolean checkAccess;
     @ManyToOne(fetch = FetchType.LAZY)
     private Site site;
 }

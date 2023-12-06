@@ -47,7 +47,7 @@ public class ClientController {
                       @Valid Client client
     ) {
         client.setAuthor(user);
-        clientService.add(client);
+        clientService.save(client);
         return "redirect:/clients";
     }
 
@@ -74,5 +74,4 @@ public class ClientController {
         clientService.update(clientFromDb, clientUpdate);
         return "redirect:/clients";
     }
-
 }

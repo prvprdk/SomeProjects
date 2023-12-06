@@ -20,7 +20,7 @@ public class ClientService {
         clientRepo.delete(client);
     }
 
-    public void add(Client client) {
+    public void save(Client client) {
         clientRepo.save(client);
     }
 

@@ -45,6 +45,7 @@ public class SiteController {
 
     @PostMapping("/siteDel")
     public String siteDel(@ModelAttribute(value = "siteForDelete") Site site) {
+
         siteRepo.delete(site);
 
         return "redirect:/accesses";

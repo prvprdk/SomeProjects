@@ -8,6 +8,7 @@
         <form th:object="${client}" method="post">
             <tbody>
             <tr>
+                <input  type="hidden" name="id" th:value="${client?.id}" />
                 <td>
                     <input class="mb-3" type="text" name="name" th:value="${client?.name}" placeholder="name"/>
                 </td>

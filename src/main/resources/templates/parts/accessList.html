@@ -1,7 +1,10 @@
 <div th:fragment="accessList">
     <div class="card mt-5" style="width: 18rem;" th:each="access : ${site.accessList}">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item" th:text="${access.typeAccess}"></li>
+            <li class="list-group-item"
+               th:style=" 'background: ' + ${access.checkAccess ? '#89bf79;' : '#ffd7ca;'}"
+                th:text="${access.typeAccess}"
+            ></li>
             <li class="list-group-item" th:text="${access.url}"></li>
             <li class="list-group-item" th:text="${access.login}"></li>
             <li class="list-group-item" th:text="${access.password}"></li>
