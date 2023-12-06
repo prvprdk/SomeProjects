@@ -6,7 +6,8 @@ create sequence usr_seq start with 1 increment by 50;
 
 create table access (
 check_access boolean not null,
-id bigint not null, site_id bigint,
+id bigint not null,
+ site_id bigint,
 login varchar(255),
 password varchar(255),
 type_access varchar(255),

@@ -1,1 +1,1 @@
-insert into usr (id, password, username) values (1, '$2y$08$KCmBeYD880jabMD91dXKyO4l8TyhlFhDEK3YFt8/YrZ7rv.KS3BYy', 'user');
+insert into usr (id, password, username) values (nextval('usr_seq'), '$2y$08$KCmBeYD880jabMD91dXKyO4l8TyhlFhDEK3YFt8/YrZ7rv.KS3BYy', 'user');
