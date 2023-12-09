@@ -4,7 +4,7 @@ import jakarta.validation.Valid;
 import org.example.domain.Access;
 import org.example.domain.Site;
 import org.example.repository.AccessRepo;
-import org.example.service.CheckAccessHelper;
+import org.example.service.CheckService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,11 +18,12 @@ import java.io.IOException;
 public class AccessController {
 
     private final AccessRepo accessRepo;
-    private final CheckAccessHelper check;
+    private final CheckService checkService;
 
-    public AccessController(AccessRepo accessRepo, CheckAccessHelper check) {
+    public AccessController(AccessRepo accessRepo, CheckService checkService) {
         this.accessRepo = accessRepo;
-        this.check = check;
+
+        this.checkService = checkService;
     }
 
     @PostMapping("/accesses/{id}")
@@ -35,7 +36,8 @@ public class AccessController {
         }
 
         access.setSite(site);
-        access.setCheckAccess(check.checkAccess(access));
+
+        access.setCheckAccess(checkService.check(access));
         accessRepo.save(access);
 
         model.addAttribute("site", site);

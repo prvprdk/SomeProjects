@@ -31,6 +31,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.0.4'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE'
 
+    // https://mvnrepository.com/artifact/com.jcraft/jsch for SSH check
+    implementation 'com.jcraft:jsch:0.1.55'
+
+    // for FTP check
+    implementation 'commons-net:commons-net:3.10.0'
+
+
     //database
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.0.4'
     implementation "org.flywaydb:flyway-mysql"
